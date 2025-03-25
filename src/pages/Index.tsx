@@ -11,7 +11,7 @@ const Index = () => {
     // Welcome toast
     toast({
       title: "Welcome to BidHub",
-      description: "Discover premium auctions and place your bids on unique items.",
+      description: "View premium auction items and their current bids.",
       duration: 5000,
     });
   }, [toast]);

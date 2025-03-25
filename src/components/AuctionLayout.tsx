@@ -76,54 +76,6 @@ const AuctionLayout: React.FC<AuctionLayoutProps> = ({ initialItems }) => {
     });
   };
   
-  // Generate the current time for top bar display
-  const [currentTime, setCurrentTime] = useState(() => {
-    const now = new Date();
-    const nyTime = new Intl.DateTimeFormat('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-      timeZone: 'America/New_York'
-    }).format(now);
-    
-    const waTime = new Intl.DateTimeFormat('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false,
-      timeZone: 'America/Los_Angeles'
-    }).format(now);
-    
-    return { ny: nyTime, wa: waTime };
-  });
-  
-  // Update the time every second
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date();
-      const nyTime = new Intl.DateTimeFormat('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-        timeZone: 'America/New_York'
-      }).format(now);
-      
-      const waTime = new Intl.DateTimeFormat('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-        timeZone: 'America/Los_Angeles'
-      }).format(now);
-      
-      setCurrentTime({ ny: nyTime, wa: waTime });
-    }, 1000);
-    
-    return () => clearInterval(timer);
-  }, []);
-  
   return (
     <div className="h-screen flex flex-col">
       {/* Top Navigation Bar */}
@@ -132,19 +84,15 @@ const AuctionLayout: React.FC<AuctionLayoutProps> = ({ initialItems }) => {
           BidHub
         </div>
         
-        <div className="text-sm font-medium text-gray-400">
-          NY {currentTime.ny} AM — WA {currentTime.wa} AM
-        </div>
-        
-        <div className="flex items-center space-x-6">
-          <div className="text-sm font-medium hover:text-white transition-colors cursor-pointer">
-            ABOUT US
-          </div>
-          
-          <div className="text-sm font-medium px-4 py-1 border border-white/20 rounded hover:bg-white/10 transition-colors cursor-pointer">
-            CONTACT US
-          </div>
-        </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setIsAddModalOpen(true)}
+          className="bg-white text-black px-4 py-2 rounded flex items-center space-x-2 hover:bg-gray-200 transition-colors"
+        >
+          <PlusCircle size={18} />
+          <span className="font-medium">Add Bid</span>
+        </motion.button>
       </div>
       
       {/* Main Content */}
@@ -153,7 +101,7 @@ const AuctionLayout: React.FC<AuctionLayoutProps> = ({ initialItems }) => {
         <div className="w-full md:w-2/3 h-full border-r border-bidhub-border overflow-hidden">
           <AnimatePresence mode="wait">
             {selectedItem ? (
-              <ItemDetail key="detail" item={selectedItem} onPlaceBid={handlePlaceBid} />
+              <ItemDetail key="detail" item={selectedItem} />
             ) : (
               <BidHub key="welcome" />
             )}
@@ -168,16 +116,6 @@ const AuctionLayout: React.FC<AuctionLayoutProps> = ({ initialItems }) => {
               selectedItem={selectedItem}
               onSelectItem={handleSelectItem}
             />
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setIsAddModalOpen(true)}
-              className="absolute bottom-6 right-6 bg-white text-black px-4 py-2 rounded flex items-center space-x-2 hover:bg-gray-200 transition-colors"
-            >
-              <PlusCircle size={18} />
-              <span className="font-medium">Add Bid</span>
-            </motion.button>
           </div>
         </div>
       </div>

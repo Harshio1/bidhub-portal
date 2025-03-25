@@ -5,19 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 interface ItemDetailProps {
   item: AuctionItem;
-  onPlaceBid: (amount: number) => void;
 }
 
-const ItemDetail: React.FC<ItemDetailProps> = ({ item, onPlaceBid }) => {
-  const [bidAmount, setBidAmount] = React.useState<number>(item.currentBid + 10);
-  
-  const handleBidSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (bidAmount > item.currentBid) {
-      onPlaceBid(bidAmount);
-    }
-  };
-  
+const ItemDetail: React.FC<ItemDetailProps> = ({ item }) => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -54,7 +44,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ item, onPlaceBid }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="mt-4 px-6 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition-colors"
-              onClick={() => document.getElementById('bid-form')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('item-details')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View More
             </motion.button>
@@ -65,34 +55,24 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ item, onPlaceBid }) => {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4 }}
-          id="bid-form"
+          id="item-details"
           className="p-8 border-t border-bidhub-border bg-bidhub-muted/30 backdrop-blur-sm"
         >
-          <h3 className="text-xl font-bold mb-4">Place Your Bid</h3>
-          <form onSubmit={handleBidSubmit} className="flex flex-col space-y-4">
+          <h3 className="text-xl font-bold mb-4">Item Details</h3>
+          <div className="space-y-4">
             <div>
-              <label htmlFor="bid-amount" className="block text-sm font-medium text-gray-400 mb-1">
-                Bid Amount (minimum ${(item.currentBid + 1).toLocaleString()})
-              </label>
-              <input
-                id="bid-amount"
-                type="number"
-                min={item.currentBid + 1}
-                value={bidAmount}
-                onChange={(e) => setBidAmount(Number(e.target.value))}
-                className="w-full bg-bidhub-accent/50 border border-bidhub-border rounded px-4 py-2 text-white"
-              />
+              <span className="text-gray-400">Category:</span>
+              <span className="ml-2">{item.category}</span>
             </div>
-            
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              type="submit"
-              className="w-full px-4 py-3 bg-white text-black font-medium rounded hover:bg-gray-200 transition-colors"
-            >
-              Place Bid
-            </motion.button>
-          </form>
+            <div>
+              <span className="text-gray-400">Year:</span>
+              <span className="ml-2">'${item.year}</span>
+            </div>
+            <div>
+              <span className="text-gray-400">Current Bid:</span>
+              <span className="ml-2">${item.currentBid.toLocaleString()}</span>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
