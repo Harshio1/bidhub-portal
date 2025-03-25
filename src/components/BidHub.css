@@ -1,0 +1,70 @@
+
+.bid-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2.5rem;
+  animation: fade-in 0.5s;
+}
+
+.bid-hub-title {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  animation: scale-in 0.5s 0.2s both;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, white, #a0a0a0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bid-hub-description {
+  color: #a0a0a0;
+  max-width: 28rem;
+  animation: slide-up 0.5s 0.4s both;
+}
+
+.arrow-indicator {
+  margin-top: 3rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade-in 0.5s 0.8s both;
+}
+
+.arrow-icon {
+  color: #a0a0a0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
