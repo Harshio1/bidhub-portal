@@ -66,7 +66,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ item }) => {
             </div>
             <div>
               <span className="text-gray-400">Year:</span>
-              <span className="ml-2">'${item.year}</span>
+              <span className="ml-2">{item.year}</span>
             </div>
             <div>
               <span className="text-gray-400">Current Bid:</span>

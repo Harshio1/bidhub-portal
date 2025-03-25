@@ -24,33 +24,6 @@ const AuctionLayout: React.FC<AuctionLayoutProps> = ({ initialItems }) => {
     setSelectedItem(item);
   };
   
-  const handlePlaceBid = (amount: number) => {
-    if (selectedItem) {
-      if (amount <= selectedItem.currentBid) {
-        toast({
-          title: "Bid too low",
-          description: "Your bid must be higher than the current bid",
-          variant: "destructive"
-        });
-        return;
-      }
-      
-      const updatedItems = items.map(item => 
-        item.id === selectedItem.id 
-          ? { ...item, currentBid: amount } 
-          : item
-      );
-      
-      setItems(updatedItems);
-      setSelectedItem({ ...selectedItem, currentBid: amount });
-      
-      toast({
-        title: "Bid placed!",
-        description: `You've successfully bid $${amount.toLocaleString()} on ${selectedItem.name}`,
-      });
-    }
-  };
-  
   const handleAddItem = (itemData: { 
     name: string; 
     description: string; 

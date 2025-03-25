@@ -66,15 +66,6 @@ export const auctionItems: AuctionItem[] = [
     description: "Artisanal ceramic vase with unique handpainted design. Perfect centerpiece."
   },
   {
-    id: 8,
-    name: "Vintage Typewriter",
-    currentBid: 190,
-    category: "ANTIQUES",
-    year: "'23",
-    imageUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop",
-    description: "Fully functional vintage typewriter from the 1930s. Recently serviced."
-  },
-  {
     id: 9,
     name: "Designer Handbag",
     currentBid: 1700,
@@ -93,15 +84,6 @@ export const auctionItems: AuctionItem[] = [
     description: "First edition collection of classic novels. Excellent condition with original bindings."
   },
   {
-    id: 11,
-    name: "Premium Wine",
-    currentBid: 1200,
-    category: "WINE & SPIRITS",
-    year: "'23",
-    imageUrl: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2070&auto=format&fit=crop",
-    description: "Rare vintage wine from an acclaimed French vineyard. Perfect for collectors."
-  },
-  {
     id: 12,
     name: "Smart Speaker",
     currentBid: 120,
@@ -109,15 +91,6 @@ export const auctionItems: AuctionItem[] = [
     year: "'23",
     imageUrl: "https://images.unsplash.com/photo-1543512214-318c7553f230?q=80&w=1974&auto=format&fit=crop",
     description: "Latest model smart speaker with premium sound quality and voice assistant."
-  },
-  {
-    id: 13,
-    name: "Luxury Pen Set",
-    currentBid: 350,
-    category: "OFFICE",
-    year: "'23",
-    imageUrl: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=2106&auto=format&fit=crop",
-    description: "Handcrafted fountain pen set with 18k gold nibs and Italian leather case."
   },
   {
     id: 14,
