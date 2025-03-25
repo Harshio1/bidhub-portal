@@ -3,33 +3,6 @@ import { AuctionItem } from './types';
 
 export const auctionItems: AuctionItem[] = [
   {
-    id: 1,
-    name: "Vintage Camera",
-    currentBid: 320,
-    category: "COLLECTIBLES",
-    year: "'24",
-    imageUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1964&auto=format&fit=crop",
-    description: "A rare vintage camera from the 1950s. Perfect condition with original leather case."
-  },
-  {
-    id: 2,
-    name: "Modern Art Painting",
-    currentBid: 1250,
-    category: "ART",
-    year: "'24",
-    imageUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=2145&auto=format&fit=crop",
-    description: "Contemporary abstract painting by an emerging artist. Oil on canvas, 120cm x 80cm."
-  },
-  {
-    id: 3,
-    name: "Classic Timepiece",
-    currentBid: 4800,
-    category: "WATCHES",
-    year: "'24",
-    imageUrl: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=2080&auto=format&fit=crop",
-    description: "Luxury mechanical watch with sapphire crystal and genuine leather strap."
-  },
-  {
     id: 4,
     name: "Designer Chair",
     currentBid: 750,

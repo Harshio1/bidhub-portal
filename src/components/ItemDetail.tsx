@@ -46,7 +46,7 @@ const ItemDetail: React.FC<ItemDetailProps> = ({ item }) => {
               className="mt-4 px-6 py-2 bg-white text-black font-medium rounded hover:bg-gray-200 transition-colors"
               onClick={() => document.getElementById('item-details')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              View More
+              View Details
             </motion.button>
           </motion.div>
         </div>
